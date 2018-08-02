@@ -1,7 +1,7 @@
 <template>
   <div class="question">
-    {{quest}}
-    {{quest.userId}}
+
+   
 asking by: <b>{{name}}</b>
 <hr/>
     <div class="columns is-mobile is-centered">
@@ -19,7 +19,7 @@ asking by: <b>{{name}}</b>
 
     </div>
 <hr/>
- Help <b>{{name}}</b> by answering his/her question
+ Help -  <b>{{name}}</b> by answering his/her question
     <article class="media tanya">
       <figure class="media-left">
         <p class="image is-64x64">
@@ -67,10 +67,10 @@ export default {
   ,
   created:function(){
 console.log(this.$route.params.id)
-console.log('tessssss')
+
 axios({
     method: 'get',
-    url: `http://localhost:3000/question/${this.$route.params.id}`
+    url: `http://35.196.48.13/question/${this.$route.params.id}`
       })
 .then( (dataQuestion)=>{
   console.log(dataQuestion)
@@ -87,7 +87,7 @@ answering(){
   console.log('masuk answer')
   axios({
     method:'post',
-    url:'http://localhost:3000/answer/add',
+    url:'http://35.196.48.13/answer/add',
     data:{
       answer:this.answer,
       questionId:this.$route.params.id
@@ -107,7 +107,7 @@ getAnswer(){
   // /question/:id
   axios({
     method:'get',
-    url:`http://localhost:3000/question/${this.$route.params.id}`
+    url:`http://35.196.48.13/question/${this.$route.params.id}`
   })
   .then(function(data){
     console.log(data)

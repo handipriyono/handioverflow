@@ -27,7 +27,7 @@
             <tr v-for="list in quest">
 
               <td> <router-link :to="`/questions/${list._id}`"> {{list.title}}</router-link></td>
-             
+
               <td>asking by: {{list.userId.username}}</td>
             </tr>
           </table>
@@ -58,7 +58,7 @@ export default {
     console.log('tessssss')
   axios({
     method:'get',
-    url:'http://localhost:3000/question'
+    url:'http://35.196.48.13/question'
   })
     .then( (dataQuestion)=>{
       console.log(dataQuestion)

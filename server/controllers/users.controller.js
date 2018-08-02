@@ -1,5 +1,6 @@
 let User = require('../models/users')
 var jwt = require('jsonwebtoken');
+let mails = require('../mail')
 
 var bcrypt = require('bcryptjs');
 const axios = require('axios');
@@ -8,6 +9,7 @@ module.exports = {
 
 
   Signup: function (req, res) {
+    console.log('signup')
     let {
       username,
       email,
@@ -23,6 +25,9 @@ module.exports = {
         password: hash
       })
       .then(function (result) {
+        mails(req.body.email, req.body.username)
+        console.log('passss')
+        console.log(result)
 
         var token = jwt.sign({
           data: result.email,

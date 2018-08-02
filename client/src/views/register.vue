@@ -12,14 +12,7 @@
     </span>
   </p>
 </div>
-<div class="field">Password:
-  <p class="control has-icons-left">
-    <input v-model="password" id="password" class="input" type="password" placeholder="Password">
-    <span class="icon is-small is-left">
-      <i class="fas fa-lock"></i>
-    </span>
-  </p>
-</div>
+
 <div class="field">Username:
   <p class="control has-icons-left">
     <input v-model="username" id="username" class="input" type="text" placeholder="username">
@@ -28,6 +21,17 @@
     </span>
   </p>
 </div>
+
+
+<div class="field">Password:
+  <p class="control has-icons-left">
+    <input v-model="password" id="password" class="input" type="password" placeholder="Password">
+    <span class="icon is-small is-left">
+      <i class="fas fa-lock"></i>
+    </span>
+  </p>
+</div>
+
 <div class="field">
   <p class="control">
     <button @click="register" class="button is-success">
@@ -72,7 +76,7 @@ methods:{
 
     axios({
         method: 'post',
-        url: `http://localhost:3000/users/register`,
+        url: `http://35.196.48.13/users/register`,
         data:{
           username:this.username,
           email:this.email,
@@ -80,9 +84,9 @@ methods:{
         }
           })
     .then( (data)=>{
-      console.log(data)
+      console.log(data, 'ini data')
       localStorage.setItem('token',data.data.token)
-    window.location = '/'
+    // window.location = '/'
     })
     .catch(function(err){
       console.log(err)

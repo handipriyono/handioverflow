@@ -58,7 +58,7 @@ methods:{
     console.log(this.question, 'ask')
     axios({
       method:'post',
-      url:'http://localhost:3000/question/add',
+      url:'http://35.196.48.13/question/add',
       data:{
         title:this.title,
         question:this.question
@@ -69,6 +69,7 @@ methods:{
     })
       .then(function(data){
         console.log(data)
+      window.location = '/'
       })
       .catch(function(err){
         console.log(err)
